@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NoScroll</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup" id="popup-root">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="logo-area">
+        <img src="../assets/logo.png" class="app-logo" alt="NoScroll" />
+        <span class="logo-text">NoScroll</span>
+      </div>
+      <div class="tier-row">
+        <span class="tier-badge" id="tier-label">Free Version</span>
+      </div>
+    </div>
+
+    <!-- Toggle Section -->
+    <div class="toggle-section">
+      <label class="toggle-label">
+        <input type="checkbox" id="main-toggle" checked data-testid="main-toggle">
+        <span class="toggle-track">
+          <span class="toggle-thumb"></span>
+        </span>
+      </label>
+      <div class="toggle-status">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="status-text">Blocking Active</span>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="stat-today">0 sec</div>
+        <div class="stat-label">TIME SAVED TODAY</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-blocks">0</div>
+        <div class="stat-label">BLOCKED TODAY</div>
+      </div>
+    </div>
+    <div class="stat-alltime" id="stat-alltime-row">
+      <span class="alltime-arrow">&#9650;</span>
+      <span id="stat-alltime">0 sec</span> saved total &nbsp;&middot;&nbsp; <span id="stat-totalblocks">0</span> distractions blocked
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Focus Mode Section -->
+    <div class="focus-mode-section" id="focus-mode-section">
+      <div class="focus-mode-row">
+        <div class="focus-mode-info">
+          <div class="section-heading">
+            <span class="section-title">Creator Mode</span>
+            <span class="help-icon" data-tooltip="Creator Mode ON - Hide feeds and explore pages. Only access your own profile and posts.">?</span>
+          </div>
+        </div>
+        <div class="focus-mode-toggle-wrap" id="focus-mode-toggle-wrap">
+          <span class="help-icon help-icon-off" id="focus-mode-off-help" data-tooltip="Creator Mode OFF — Feeds stay visible, but videos and posts require a click and short delay to view. This adds friction instead of fully blocking, helping reduce doomscrolling.">?</span>
+          <label class="toggle-label toggle-small" id="focus-mode-label">
+            <input type="checkbox" id="focus-mode-toggle" data-testid="focus-mode-toggle">
+            <span class="toggle-track toggle-track-sm">
+              <span class="toggle-thumb toggle-thumb-sm"></span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Platform Toggles -->
+    <div class="platform-toggles-section" id="platform-toggles-section">
+      <div class="platform-toggles-header">
+        <div class="section-heading">
+          <span class="section-title">Platform Controls</span>
+          <span class="pro-badge" id="platform-pro-badge">Pro &#128274;</span>
+        </div>
+      </div>
+      <div class="platform-toggles-grid" id="platform-toggles-grid">
+        <label class="platform-toggle-item platform-free" data-platform="youtube">
+          <span class="platform-name">YouTube</span>
+          <input type="checkbox" id="platform-youtube" checked data-testid="platform-youtube">
+          <span class="platform-toggle-slider"></span>
+        </label>
+        <div class="platform-pro-wrap" data-pro-lock>
+          <label class="platform-toggle-item platform-pro-only" data-platform="tiktok">
+            <span class="platform-name">TikTok</span>
+            <input type="checkbox" id="platform-tiktok" checked data-testid="platform-tiktok">
+            <span class="platform-toggle-slider"><span class="lock-icon-pill" aria-hidden="true">&#128274;</span></span>
+          </label>
+        </div>
+        <div class="platform-pro-wrap" data-pro-lock>
+          <label class="platform-toggle-item platform-pro-only" data-platform="instagram">
+            <span class="platform-name">Instagram</span>
+            <input type="checkbox" id="platform-instagram" checked data-testid="platform-instagram">
+            <span class="platform-toggle-slider"><span class="lock-icon-pill" aria-hidden="true">&#128274;</span></span>
+          </label>
+        </div>
+        <div class="platform-pro-wrap" data-pro-lock>
+          <label class="platform-toggle-item platform-pro-only" data-platform="facebook">
+            <span class="platform-name">Facebook</span>
+            <input type="checkbox" id="platform-facebook" checked data-testid="platform-facebook">
+            <span class="platform-toggle-slider"><span class="lock-icon-pill" aria-hidden="true">&#128274;</span></span>
+          </label>
+        </div>
+        <div class="platform-pro-wrap" data-pro-lock>
+          <label class="platform-toggle-item platform-pro-only" data-platform="twitter">
+            <span class="platform-name">Twitter/X</span>
+            <input type="checkbox" id="platform-twitter" checked data-testid="platform-twitter">
+            <span class="platform-toggle-slider"><span class="lock-icon-pill" aria-hidden="true">&#128274;</span></span>
+          </label>
+        </div>
+        <div class="platform-pro-wrap" data-pro-lock>
+          <label class="platform-toggle-item platform-pro-only" data-platform="reddit">
+            <span class="platform-name">Reddit</span>
+            <input type="checkbox" id="platform-reddit" checked data-testid="platform-reddit">
+            <span class="platform-toggle-slider"><span class="lock-icon-pill" aria-hidden="true">&#128274;</span></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Reveal Delay -->
+    <div class="delay-timer-section" id="delay-timer-section">
+      <div class="delay-timer-row">
+        <div class="delay-timer-info">
+          <div class="section-heading">
+            <span class="section-title">Reveal Delay</span>
+            <span class="pro-badge" id="delay-pro-badge">Pro &#128274;</span>
+          </div>
+        </div>
+        <div class="delay-timer-right">
+          <div class="delay-timer-control" id="delay-control-wrap">
+            <input type="range" id="delay-slider" min="1" max="10" value="1" class="delay-slider" data-testid="delay-slider">
+            <span class="delay-value" id="delay-value">1s</span>
+          </div>
+        </div>
+      </div>
+      <div class="delay-helper" id="delay-helper"></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Custom Motivational Message -->
+    <div class="message-section" id="message-section">
+      <div class="section-heading">
+        <span class="message-title">Custom Motivational Message</span>
+        <span class="pro-badge" id="message-pro-badge">Pro &#128274;</span>
+      </div>
+      <div class="message-input-wrap" id="message-input-wrap">
+        <div class="message-field-block">
+          <textarea
+            id="custom-message"
+            class="message-input"
+            placeholder="Take a moment — is this worth your time?"
+            rows="1"
+          ></textarea>
+          <div class="message-helper" id="message-helper"></div>
+        </div>
+        <button id="save-message" class="btn-save" data-testid="save-message-btn">Save</button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Show Focus Mode Indicator (v11) -->
+    <div class="indicator-pref-section" id="indicator-pref-section">
+      <div class="indicator-pref-row">
+        <div class="indicator-pref-info">
+          <div class="section-heading">
+            <span class="section-title">Show Creator Mode Indicator</span>
+            <span class="help-icon" data-tooltip="Shows a small on-screen reminder when Creator Mode is active.">?</span>
+          </div>
+        </div>
+        <label class="toggle-label toggle-small">
+          <input type="checkbox" id="show-indicator-toggle" checked data-testid="show-indicator-toggle">
+          <span class="toggle-track toggle-track-sm">
+            <span class="toggle-thumb toggle-thumb-sm"></span>
+          </span>
+        </label>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Tester Mode: Free/Pro toggle for unlisted testing -->
+    <div class="tester-section" id="tester-section">
+      <div class="tester-label">Tester Mode</div>
+      <div class="tester-segmented">
+        <button type="button" class="tester-seg" data-tier="free" id="tester-free">Free</button>
+        <button type="button" class="tester-seg" data-tier="pro" id="tester-pro">Pro</button>
+      </div>
+    </div>
+
+    <div class="policy-footer">
+      <a href="#" id="privacy-link">Privacy Policy</a>
+      <span class="policy-sep">·</span>
+      <a href="#" id="terms-link">Terms</a>
+      <span class="policy-sep">·</span>
+      <a href="mailto:noscrollsupport@gmail.com" target="_blank" rel="noopener" id="support-link">Support</a>
+    </div>
+
+  </div>
+
+  <script src="../lib/features.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
